@@ -1,0 +1,225 @@
+.upcoming-travels-hero {
+  min-height: 50vh;
+}
+
+.travels-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-gray-50);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--color-gray-200);
+  border-top: 5px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-4);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.travels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-6);
+}
+
+.travel-card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.travel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.travel-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.travel-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.travel-card:hover .travel-card-image img {
+  transform: scale(1.05);
+}
+
+.travel-days-badge {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+}
+
+.days-number {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}
+
+.days-text {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+
+.travel-card-content {
+  padding: var(--space-6);
+}
+
+.travel-destination {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+  color: var(--color-gray-900);
+}
+
+.travel-dates {
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+.travel-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.travel-detail-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-gray-100);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+}
+
+.detail-icon {
+  margin-right: var(--space-1);
+}
+
+.travel-preparation {
+  background-color: var(--color-gray-50);
+  padding: var(--space-4);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.preparation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.preparation-title {
+  font-size: var(--font-size-base);
+  margin: 0;
+  color: var(--color-gray-800);
+}
+
+.preparation-percentage {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: width 0.5s ease;
+}
+
+.preparation-tasks {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  text-align: right;
+}
+
+.travel-card-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.travel-card-actions .btn {
+  flex: 1;
+}
+
+.no-travels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) 0;
+}
+
+.no-travels-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+}
+
+.no-travels-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-gray-800);
+}
+
+.no-travels-message {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .travels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .travels-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .travel-card-actions {
+    flex-direction: column;
+  }
+}

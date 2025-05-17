@@ -1,0 +1,308 @@
+.group-travel-hero {
+  min-height: 50vh;
+}
+
+.group-travel-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-gray-50);
+}
+
+.group-travel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.tab {
+  padding: var(--space-3) var(--space-6);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-gray-600);
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  color: var(--color-primary);
+}
+
+.tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.create-group-btn {
+  white-space: nowrap;
+}
+
+.group-travel-content {
+  min-height: 400px;
+}
+
+.active-trips, .invitations, .past-trips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-6);
+}
+
+.group-trip-card, .invitation-card, .past-trip-card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.group-trip-card:hover, .invitation-card:hover, .past-trip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.trip-card-image, .invitation-image {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.trip-card-image img, .invitation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.group-trip-card:hover .trip-card-image img,
+.invitation-card:hover .invitation-image img,
+.past-trip-card:hover .trip-card-image img {
+  transform: scale(1.05);
+}
+
+.memories-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background-color: var(--color-accent);
+  color: var(--color-gray-900);
+  border-radius: var(--border-radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.trip-card-content, .invitation-content {
+  padding: var(--space-6);
+}
+
+.trip-title, .invitation-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+  color: var(--color-gray-900);
+}
+
+.trip-destination, .invitation-destination {
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
+}
+
+.trip-destination::before, .invitation-destination::before {
+  content: '📍';
+  margin-right: var(--space-1);
+}
+
+.trip-dates, .invitation-dates {
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+}
+
+.trip-dates::before, .invitation-dates::before {
+  content: '📅';
+  margin-right: var(--space-1);
+}
+
+.trip-organizer, .invitation-organizer {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+.label {
+  color: var(--color-gray-600);
+}
+
+.trip-participants, .invitation-participants {
+  margin-bottom: var(--space-4);
+}
+
+.participant-list {
+  display: flex;
+  margin-bottom: var(--space-2);
+}
+
+.participant-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -8px;
+  font-size: var(--font-size-base);
+  border: 2px solid var(--color-white);
+}
+
+.participant-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+}
+
+.trip-progress {
+  margin-bottom: var(--space-6);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.progress-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.progress-percentage {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-full);
+}
+
+.trip-actions, .invitation-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.invitation-deadline {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning-dark);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+/* Benefits Section */
+.group-travel-benefits {
+  padding: var(--space-20) 0;
+  background-color: var(--color-white);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.benefit-card {
+  text-align: center;
+  padding: var(--space-6);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.benefit-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-3);
+  color: var(--color-gray-900);
+}
+
+.benefit-description {
+  color: var(--color-gray-600);
+  line-height: 1.6;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .active-trips, .invitations, .past-trips {
+    grid-template-columns: 1fr;
+  }
+  
+  .group-travel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tabs {
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  .create-group-btn {
+    width: 100%;
+  }
+  
+  .trip-actions, .invitation-actions {
+    flex-direction: column;
+  }
+  
+  .trip-actions button, .invitation-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+  }
+}

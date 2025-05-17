@@ -1,0 +1,342 @@
+.memories-hero {
+  min-height: 50vh;
+}
+
+.memories-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-gray-50);
+}
+
+.memories-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.filter-tag {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+  border: none;
+  border-radius: var(--border-radius-full);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-tag:hover {
+  background-color: var(--color-gray-300);
+}
+
+.filter-tag.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.add-memory-btn {
+  white-space: nowrap;
+}
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.memory-card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.memory-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.memory-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.memory-card.featured .memory-card-image {
+  height: 300px;
+}
+
+.memory-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.memory-card:hover .memory-card-image img {
+  transform: scale(1.05);
+}
+
+.featured-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background-color: var(--color-accent);
+  color: var(--color-gray-900);
+  border-radius: var(--border-radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.memory-card-content {
+  padding: var(--space-4);
+}
+
+.memory-title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-gray-900);
+}
+
+.memory-location {
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+}
+
+.memory-location::before {
+  content: '📍';
+  margin-right: var(--space-1);
+}
+
+.memory-date {
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xs);
+}
+
+.memory-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.memory-tag {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+  border-radius: var(--border-radius-full);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.no-memories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) 0;
+}
+
+.no-memories-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+}
+
+.no-memories-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-gray-800);
+}
+
+.no-memories-message {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin-bottom: var(--space-8);
+}
+
+/* Memory Modal */
+.memory-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-index-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.memory-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-index-above);
+}
+
+.memory-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.memory-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.memory-modal-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  height: 50vh;
+  scroll-behavior: smooth;
+}
+
+.modal-gallery-item {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  height: 100%;
+}
+
+.modal-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-modal-details {
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.memory-modal-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-3);
+  color: var(--color-gray-900);
+}
+
+.memory-modal-meta {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  color: var(--color-gray-600);
+  font-size: var(--font-size-sm);
+}
+
+.memory-modal-location::before {
+  content: '📍';
+  margin-right: var(--space-1);
+}
+
+.memory-modal-date::before {
+  content: '📅';
+  margin-right: var(--space-1);
+}
+
+.memory-modal-description {
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+  color: var(--color-gray-800);
+}
+
+.memory-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.memory-modal-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .memory-modal-content {
+    flex-direction: row;
+    max-height: 80vh;
+  }
+  
+  .memory-modal-gallery {
+    flex: 0 0 60%;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .memory-modal-details {
+    flex: 0 0 40%;
+    overflow-y: auto;
+  }
+  
+  .modal-gallery-item {
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .memory-card.featured {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .memory-card.featured .memory-card-image {
+    height: 200px;
+  }
+  
+  .memories-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .add-memory-btn {
+    width: 100%;
+  }
+}

@@ -42,20 +42,19 @@ const Navbar = () => {
 
       <div className={`menu-overlay ${menuOpen ? 'open' : ''}`}>
         <div className="menu-content">
+          <button className="menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            CLOSE <span className="menu-close-arrow">→</span>
+          </button>
+          <div className="menu-heading">
+            <span className="menu-heading-main">Start your</span>
+            <span className="menu-heading-sub">Journey</span>
+          </div>
           <nav className="menu-nav">
             <Link to="/new-travel-plan" className="menu-link">New Travel Plan</Link>
             <Link to="/upcoming-travels" className="menu-link">Upcoming Travels</Link>
             <Link to="/memories" className="menu-link">Memories</Link>
             <Link to="/group-travel" className="menu-link">Group Travel</Link>
           </nav>
-          
-          <div className="menu-footer">
-            <div className="menu-social">
-              <a href="https://twitter.com" target="_blank" rel="noopener" className="social-link">Twitter</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener" className="social-link">LinkedIn</a>
-              <a href="mailto:contact@amextravelogue.com" className="social-link">Email</a>
-            </div>
-          </div>
         </div>
       </div>
     </>

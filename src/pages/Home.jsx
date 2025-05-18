@@ -23,6 +23,7 @@ const Home = () => {
     <div className="home-page">
       <section className="hero home-hero">
         <div className="hero-bg"></div>
+        <div className="hero-person"></div>
         <div className="hero-content animate-stagger">
           <h1 className="hero-title">Discover Your Next Adventure</h1>
           <p className="hero-subtitle">Create, plan, and relive travel experiences that last a lifetime.</p>

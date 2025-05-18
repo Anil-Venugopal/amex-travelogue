@@ -1,6 +1,8 @@
 /* Hero Section */
 .home-hero {
-  background-color: var(--color-gray-900);
+  background: linear-gradient(135deg, #106E7E, #084F5B);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-bg {
@@ -9,8 +11,44 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.10) 0%, rgba(42,180,217,0.10) 60%, rgba(10,60,89,0.85) 100%), linear-gradient(120deg, #0a3c59 0%, #2bb6d9 100%);
-  z-index: -1;
+  opacity: 0.4;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(16, 110, 126, 0.9), rgba(8, 79, 91, 0.9));
+}
+
+.hero-person {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  height: 90%;
+  background-image: url('https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-position: center;
+  background-size: cover;
+  mask-image: linear-gradient(to left, #000 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, #000 40%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: var(--z-index-above);
+  max-width: 900px;
+  margin-left: 10%;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.5s;
 }
 
 .hero-cta {
@@ -218,7 +256,6 @@
   padding: var(--space-4) 0;
   margin: 0 -16px;
   padding: 0 16px;
-  /* Hide scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -250,7 +287,7 @@
 }
 
 .testimonial-text::before {
-  content: '"';
+  content: "";
   font-size: 4rem;
   position: absolute;
   top: -2rem;
@@ -306,6 +343,10 @@
 
 /* Media Queries */
 @media (max-width: 1024px) {
+  .hero-person {
+    width: 35%;
+  }
+
   .features-grid,
   .destinations-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -317,6 +358,16 @@
 }
 
 @media (max-width: 768px) {
+  .hero-person {
+    display: none;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 var(--space-4);
+  }
+
   .hero-cta {
     flex-direction: column;
     gap: var(--space-4);

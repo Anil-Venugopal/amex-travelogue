@@ -84,7 +84,7 @@ const Home = () => {
       <section className="destinations-section">
         <div className="parallax-container">
           <div className="parallax" data-speed="0.05">
-            <div className="destination-bg" style={{ backgroundImage: 'url(https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
+            <div className="destination-bg" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1260&h=750)' }}></div>
           </div>
           
           <div className="container">
@@ -95,7 +95,7 @@ const Home = () => {
             
             <div className="destinations-grid">
               <div className="destination-card">
-                <div className="destination-img" style={{ backgroundImage: 'url(https://images.pexels.com/photos/2193300/pexels-photo-2193300.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
+                <div className="destination-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1260&h=750)' }}></div>
                 <div className="destination-content">
                   <h3 className="destination-title">Kyoto, Japan</h3>
                   <p className="destination-subtitle">Ancient temples & modern city life</p>
@@ -103,7 +103,7 @@ const Home = () => {
               </div>
               
               <div className="destination-card">
-                <div className="destination-img" style={{ backgroundImage: 'url(https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
+                <div className="destination-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1260&h=750)' }}></div>
                 <div className="destination-content">
                   <h3 className="destination-title">Santorini, Greece</h3>
                   <p className="destination-subtitle">Breathtaking views & crystal waters</p>
@@ -111,7 +111,7 @@ const Home = () => {
               </div>
               
               <div className="destination-card">
-                <div className="destination-img" style={{ backgroundImage: 'url(https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
+                <div className="destination-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750)' }}></div>
                 <div className="destination-content">
                   <h3 className="destination-title">Machu Picchu, Peru</h3>
                   <p className="destination-subtitle">Ancient wonders & stunning landscapes</p>
@@ -119,7 +119,7 @@ const Home = () => {
               </div>
               
               <div className="destination-card">
-                <div className="destination-img" style={{ backgroundImage: 'url(https://images.pexels.com/photos/981091/pexels-photo-981091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
+                <div className="destination-img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1260&h=750)' }}></div>
                 <div className="destination-content">
                   <h3 className="destination-title">Bali, Indonesia</h3>
                   <p className="destination-subtitle">Paradise beaches & vibrant culture</p>

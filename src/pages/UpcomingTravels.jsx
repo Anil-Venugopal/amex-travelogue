@@ -13,7 +13,7 @@ const UpcomingTravels = () => {
         {
           id: 1,
           destination: 'Tokyo, Japan',
-          image: 'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1260&h=750',
           startDate: '2025-06-15',
           endDate: '2025-06-28',
           travelers: 2,
@@ -26,7 +26,7 @@ const UpcomingTravels = () => {
         {
           id: 2,
           destination: 'Barcelona, Spain',
-          image: 'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1260&h=750',
           startDate: '2025-08-10',
           endDate: '2025-08-17',
           travelers: 4,
@@ -39,7 +39,7 @@ const UpcomingTravels = () => {
         {
           id: 3,
           destination: 'New York, USA',
-          image: 'https://images.pexels.com/photos/802024/pexels-photo-802024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1260&h=750',
           startDate: '2025-05-05',
           endDate: '2025-05-10',
           travelers: 2,
@@ -86,7 +86,7 @@ const UpcomingTravels = () => {
       <section className="hero upcoming-travels-hero">
         <div 
           className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750)' }}
         ></div>
         <div className="hero-content">
           <h1 className="hero-title">Upcoming Travels</h1>

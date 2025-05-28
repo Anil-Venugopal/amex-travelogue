@@ -74,7 +74,7 @@ const NewTravelPlan = () => {
       <section className="hero travel-plan-hero">
         <div 
           className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.pexels.com/photos/7412069/pexels-photo-7412069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1260&h=750)' }}
         ></div>
         <div className="hero-content">
           <h1 className="hero-title">Create Your Travel Plan</h1>

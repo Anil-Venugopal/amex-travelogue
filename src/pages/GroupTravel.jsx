@@ -11,7 +11,7 @@ const GroupTravel = () => {
         id: 1,
         title: 'Summer in Europe',
         destination: 'Multiple Cities, Europe',
-        image: 'https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1260&h=750',
         dates: 'Jul 15 - Aug 10, 2025',
         organizer: 'David Chen',
         participants: [
@@ -26,7 +26,7 @@ const GroupTravel = () => {
         id: 2,
         title: 'Bali Retreat',
         destination: 'Bali, Indonesia',
-        image: 'https://images.pexels.com/photos/1802255/pexels-photo-1802255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1260&h=750',
         dates: 'Sep 5 - Sep 15, 2025',
         organizer: 'You',
         participants: [
@@ -42,7 +42,7 @@ const GroupTravel = () => {
         id: 3,
         title: 'Ski Weekend',
         destination: 'Aspen, Colorado, USA',
-        image: 'https://images.pexels.com/photos/376697/pexels-photo-376697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1260&h=750',
         dates: 'Jan 20 - Jan 23, 2024',
         organizer: 'Sarah Johnson',
         participants: [
@@ -58,7 +58,7 @@ const GroupTravel = () => {
         id: 4,
         title: 'Thailand Adventure',
         destination: 'Bangkok & Phuket, Thailand',
-        image: 'https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750',
         dates: 'Nov 10 - Nov 24, 2025',
         organizer: 'Michael Kim',
         participants: [
@@ -76,7 +76,7 @@ const GroupTravel = () => {
       <section className="hero group-travel-hero">
         <div 
           className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.pexels.com/photos/7083916/pexels-photo-7083916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1260&h=750)' }}
         ></div>
         <div className="hero-content">
           <h1 className="hero-title">Group Travel</h1>

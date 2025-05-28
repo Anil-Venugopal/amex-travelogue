@@ -18,9 +18,9 @@ const Memories = () => {
           location: 'Santorini, Greece',
           date: '2024-04-15',
           images: [
-            'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-            'https://images.pexels.com/photos/1167021/pexels-photo-1167021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-            'https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1260&h=750',
+            'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1260&h=750',
+            'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1260&h=750',
           ],
           description: 'Watching the sunset in Oia was absolutely breathtaking. The white buildings against the blue Aegean Sea created a perfect contrast.',
           tags: ['Europe', 'Island', 'Sunset'],
@@ -32,8 +32,8 @@ const Memories = () => {
           location: 'Kyoto, Japan',
           date: '2024-03-10',
           images: [
-            'https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-            'https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1260&h=750',
+            'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1260&h=750',
           ],
           description: 'Explored the bamboo forests and ancient temples. The serenity and beauty of the place was overwhelming.',
           tags: ['Asia', 'Nature', 'Cultural'],
@@ -45,8 +45,8 @@ const Memories = () => {
           location: 'Serengeti, Tanzania',
           date: '2023-11-20',
           images: [
-            'https://images.pexels.com/photos/633198/pexels-photo-633198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-            'https://images.pexels.com/photos/39571/gorilla-silverback-animal-silvery-grey-39571.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1260&h=750',
+            'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1260&h=750',
           ],
           description: 'Witnessed the great migration and saw the big five. An unforgettable wildlife experience.',
           tags: ['Africa', 'Wildlife', 'Adventure'],
@@ -58,7 +58,7 @@ const Memories = () => {
           location: 'Reykjavik, Iceland',
           date: '2023-09-05',
           images: [
-            'https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=1260&h=750',
           ],
           description: 'Finally saw the aurora borealis dancing across the night sky. The colors were more vibrant than I could have imagined.',
           tags: ['Europe', 'Nature', 'Night'],
@@ -106,7 +106,7 @@ const Memories = () => {
       <section className="hero memories-hero">
         <div 
           className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750)' }}
         ></div>
         <div className="hero-content">
           <h1 className="hero-title">Travel Memories</h1>

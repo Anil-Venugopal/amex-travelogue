@@ -46,8 +46,8 @@ const Navbar = () => {
             CLOSE <span className="menu-close-arrow">→</span>
           </button>
           <div className="menu-heading">
-            <span className="menu-heading-main">Start your</span>
-            <span className="menu-heading-sub">Journey</span>
+            {/* <span className="menu-heading-main">Start your</span>
+            <span className="menu-heading-sub">Journey</span> */}
           </div>
           <nav className="menu-nav">
             <Link to="/new-travel-plan" className="menu-link">New Travel Plan</Link>

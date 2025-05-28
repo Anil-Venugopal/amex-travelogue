@@ -25,7 +25,7 @@ const Home = () => {
         <div className="hero-bg"></div>
         <div className="hero-person"></div>
         <div className="hero-content animate-stagger">
-          <h1 className="hero-title">Discover Your Next Adventure</h1>
+          <h1 className="hero-title">Plan Your Next Adventure</h1>
           <p className="hero-subtitle">Create, plan, and relive travel experiences that last a lifetime.</p>
           <div className="hero-cta">
             <Link to="/new-travel-plan" className="btn btn-primary">Start Planning</Link>

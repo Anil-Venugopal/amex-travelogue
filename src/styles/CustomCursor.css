@@ -17,12 +17,13 @@
 }
 
 .cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--color-white);
+  width: 42px;
+  height: 42px;
+  border: 0.2px solid var(--color-white);
   transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.3s;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+  outline: 0;
 }
 
 .cursor-dot--clicked {

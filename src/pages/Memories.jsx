@@ -102,18 +102,7 @@ const Memories = () => {
     : memories.filter(memory => memory.tags.includes(filter));
 
   return (
-    <div className="memories-page">
-      <section className="hero memories-hero">
-        <div 
-          className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750)' }}
-        ></div>
-        <div className="hero-content">
-          <h1 className="hero-title">Travel Memories</h1>
-          <p className="hero-subtitle">Relive your favorite adventures</p>
-        </div>
-      </section>
-
+    <div className="memories-page" style={{ paddingTop: '96px' }}>
       <section className="memories-section">
         <div className="container">
           {loading ? (

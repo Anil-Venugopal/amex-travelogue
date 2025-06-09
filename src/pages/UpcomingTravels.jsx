@@ -82,18 +82,7 @@ const UpcomingTravels = () => {
   };
 
   return (
-    <div className="upcoming-travels-page">
-      <section className="hero upcoming-travels-hero">
-        <div 
-          className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1260&h=750)' }}
-        ></div>
-        <div className="hero-content">
-          <h1 className="hero-title">Upcoming Travels</h1>
-          <p className="hero-subtitle">Your adventures await</p>
-        </div>
-      </section>
-
+    <div className="upcoming-travels-page" style={{ paddingTop: '96px' }}>
       <section className="travels-section">
         <div className="container">
           {loading ? (

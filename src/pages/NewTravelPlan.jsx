@@ -70,19 +70,8 @@ const NewTravelPlan = () => {
   ];
 
   return (
-    <div className="new-travel-plan-page">
-      <section className="hero travel-plan-hero">
-        <div 
-          className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1260&h=750)' }}
-        ></div>
-        <div className="hero-content">
-          <h1 className="hero-title">Create Your Travel Plan</h1>
-          <p className="hero-subtitle">Let's craft your perfect journey, one step at a time</p>
-        </div>
-      </section>
-
-      <section className="travel-plan-form-section">
+    <div className="new-travel-plan-page" style={{ paddingTop: '96px' }}>
+      <div className="travel-plan-form-section">
         <div className="container">
           <div className="progress-bar">
             <div className={`progress-step ${step >= 1 ? 'active' : ''}`}>
@@ -293,7 +282,7 @@ const NewTravelPlan = () => {
             </form>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

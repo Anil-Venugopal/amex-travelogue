@@ -2,8 +2,16 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/Navbar.css';
 
+const PAGE_TITLES = {
+  '/new-travel-plan': 'Create Plan',
+  '/upcoming-travels': 'Upcoming Travels',
+  '/memories': 'Memories',
+  '/group-travel': 'Group Travel',
+};
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   // Close menu when route changes
@@ -21,14 +29,30 @@ const Navbar = () => {
     }
   }, [menuOpen]);
 
+  // Add solid background on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determine page title for subpages
+  const pageTitle = PAGE_TITLES[location.pathname] || '';
+
   return (
     <>
-      <header className="navbar">
+      <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo">
-            <span className="logo-text">Amex Travelogue</span>
-          </Link>
-
+          <div className="navbar-title-group">
+            <Link to="/" className="navbar-logo">
+              <span className="logo-text">Amex Travelogue</span>
+            </Link>
+            {pageTitle && (
+              <span className="navbar-page-title">| {pageTitle}</span>
+            )}
+          </div>
           <button 
             className={`menu-toggle ${menuOpen ? 'active' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}

@@ -72,18 +72,7 @@ const GroupTravel = () => {
   };
 
   return (
-    <div className="group-travel-page">
-      <section className="hero group-travel-hero">
-        <div 
-          className="hero-bg" 
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1260&h=750)' }}
-        ></div>
-        <div className="hero-content">
-          <h1 className="hero-title">Group Travel</h1>
-          <p className="hero-subtitle">Plan and explore together</p>
-        </div>
-      </section>
-
+    <div className="group-travel-page" style={{ paddingTop: '96px' }}>
       <section className="group-travel-section">
         <div className="container">
           <div className="group-travel-header">

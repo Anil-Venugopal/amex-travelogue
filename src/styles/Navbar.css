@@ -225,3 +225,28 @@
   color: #4b5fa7;
   font-size: var(--font-size-3xl);
 }
+
+.navbar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-page-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #4b5fa7;
+  margin-left: 0.75rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  border-left: none;
+  padding-left: 0;
+  align-self: center;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.navbar.scrolled {
+  background: rgb(0, 111, 207);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+  transition: background 0.3s, box-shadow 0.3s;
+}

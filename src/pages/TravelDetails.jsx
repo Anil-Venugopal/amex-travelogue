@@ -1,4 +1,5 @@
 import React from 'react';
+import jsPDF from 'jspdf';
 import '../styles/TravelDetails.css';
 
 const mockData = {
@@ -39,6 +40,31 @@ const Section = ({ title, children }) => (
     {children}
   </section>
 );
+
+const downloadReport = async () => {
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+
+  // Helper to load image as base64
+  const toDataURL = url => fetch(url)
+    .then(response => response.blob())
+    .then(blob => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    }));
+
+  const img1 = await toDataURL('/reports/report1.png');
+  const img2 = await toDataURL('/reports/report2.png');
+
+  // Add first image
+  doc.addImage(img1, 'PNG', 0, 0, 595, 842); // A4 size in pt
+  doc.addPage();
+  // Add second image
+  doc.addImage(img2, 'PNG', 0, 0, 595, 842);
+
+  doc.save('trip-report.pdf');
+};
 
 const TravelDetails = () => (
   <div className="travel-details-page" style={{ paddingTop: '96px', paddingBottom: '48px', background: '#fff' }}>
@@ -129,6 +155,7 @@ const TravelDetails = () => (
     </Section>
     <div style={{ textAlign: 'center', marginTop: 32 }}>
       <button className="btn btn-primary" onClick={() => window.history.back()}>Back</button>
+      <button className="btn btn-accent" style={{ marginLeft: 16 }} onClick={downloadReport}>Download Report</button>
     </div>
   </div>
 );

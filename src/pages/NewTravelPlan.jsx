@@ -76,23 +76,109 @@ const NewTravelPlan = () => {
           <div className="progress-bar">
             <div className={`progress-step ${step >= 1 ? 'active' : ''}`}>
               <div className="step-number">1</div>
-              <div className="step-label">Basics</div>
+              <div className="step-label">Preferences</div>
             </div>
             <div className="progress-line"></div>
             <div className={`progress-step ${step >= 2 ? 'active' : ''}`}>
               <div className="step-number">2</div>
-              <div className="step-label">Preferences</div>
+              <div className="step-label">Details</div>
             </div>
             <div className="progress-line"></div>
             <div className={`progress-step ${step >= 3 ? 'active' : ''}`}>
               <div className="step-number">3</div>
-              <div className="step-label">Details</div>
+              <div className="step-label">Basics</div>
             </div>
           </div>
 
           <div className="travel-plan-form-container">
             <form onSubmit={handleSubmit} className="travel-plan-form">
               {step === 1 && (
+                <div className="form-step animate-fade-in">
+                  <h2 className="form-step-title">What are you interested in?</h2>
+                  
+                  <div className="form-group">
+                    <label>Select your interests (Choose as many as you like)</label>
+                    <div className="interests-grid">
+                      {interests.map((interest) => (
+                        <div
+                          key={interest}
+                          className={`interest-item ${formData.interests.includes(interest) ? 'selected' : ''}`}
+                          onClick={() => handleInterestToggle(interest)}
+                        >
+                          {interest}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="form-group">
+                    <label>Accommodation Type</label>
+                    <div className="option-cards">
+                      {accommodationTypes.map((type) => (
+                        <div
+                          key={type.value}
+                          className={`option-card ${formData.accommodationType === type.value ? 'selected' : ''}`}
+                          onClick={() => setFormData({ ...formData, accommodationType: type.value })}
+                        >
+                          <div className="option-icon">{type.icon}</div>
+                          <div className="option-label">{type.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="form-actions">
+                    <button type="button" onClick={nextStep} className="btn btn-primary">
+                      Next
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {step === 2 && (
+                <div className="form-step animate-fade-in">
+                  <h2 className="form-step-title">Transportation & Details</h2>
+                  
+                  <div className="form-group">
+                    <label>Transportation Type</label>
+                    <div className="option-cards">
+                      {transportationTypes.map((type) => (
+                        <div
+                          key={type.value}
+                          className={`option-card ${formData.transportationType === type.value ? 'selected' : ''}`}
+                          onClick={() => setFormData({ ...formData, transportationType: type.value })}
+                        >
+                          <div className="option-icon">{type.icon}</div>
+                          <div className="option-label">{type.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="notes">Additional Notes</label>
+                    <textarea
+                      id="notes"
+                      name="notes"
+                      value={formData.notes || ''}
+                      onChange={handleChange}
+                      placeholder="Any special requirements or preferences..."
+                      rows="4"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="form-actions">
+                    <button type="button" onClick={prevStep} className="btn btn-secondary">
+                      Back
+                    </button>
+                    <button type="button" onClick={nextStep} className="btn btn-primary">
+                      Next
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {step === 3 && (
                 <div className="form-step animate-fade-in">
                   <h2 className="form-step-title">Tell us about your trip</h2>
                   
@@ -161,92 +247,6 @@ const NewTravelPlan = () => {
                         required
                       />
                     </div>
-                  </div>
-                  
-                  <div className="form-actions">
-                    <button type="button" onClick={nextStep} className="btn btn-primary">
-                      Next
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {step === 2 && (
-                <div className="form-step animate-fade-in">
-                  <h2 className="form-step-title">What are you interested in?</h2>
-                  
-                  <div className="form-group">
-                    <label>Select your interests (Choose as many as you like)</label>
-                    <div className="interests-grid">
-                      {interests.map((interest) => (
-                        <div
-                          key={interest}
-                          className={`interest-item ${formData.interests.includes(interest) ? 'selected' : ''}`}
-                          onClick={() => handleInterestToggle(interest)}
-                        >
-                          {interest}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="form-group">
-                    <label>Accommodation Type</label>
-                    <div className="option-cards">
-                      {accommodationTypes.map((type) => (
-                        <div
-                          key={type.value}
-                          className={`option-card ${formData.accommodationType === type.value ? 'selected' : ''}`}
-                          onClick={() => setFormData({ ...formData, accommodationType: type.value })}
-                        >
-                          <div className="option-icon">{type.icon}</div>
-                          <div className="option-label">{type.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="form-actions">
-                    <button type="button" onClick={prevStep} className="btn btn-secondary">
-                      Back
-                    </button>
-                    <button type="button" onClick={nextStep} className="btn btn-primary">
-                      Next
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {step === 3 && (
-                <div className="form-step animate-fade-in">
-                  <h2 className="form-step-title">Transportation & Details</h2>
-                  
-                  <div className="form-group">
-                    <label>Transportation Type</label>
-                    <div className="option-cards">
-                      {transportationTypes.map((type) => (
-                        <div
-                          key={type.value}
-                          className={`option-card ${formData.transportationType === type.value ? 'selected' : ''}`}
-                          onClick={() => setFormData({ ...formData, transportationType: type.value })}
-                        >
-                          <div className="option-icon">{type.icon}</div>
-                          <div className="option-label">{type.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="form-group">
-                    <label htmlFor="notes">Additional Notes</label>
-                    <textarea
-                      id="notes"
-                      name="notes"
-                      value={formData.notes || ''}
-                      onChange={handleChange}
-                      placeholder="Any special requirements or preferences..."
-                      rows="4"
-                    ></textarea>
                   </div>
                   
                   <div className="form-actions">

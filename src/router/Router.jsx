@@ -8,6 +8,7 @@ const NewTravelPlan = lazy(() => import('../pages/NewTravelPlan'));
 const UpcomingTravels = lazy(() => import('../pages/UpcomingTravels'));
 const Memories = lazy(() => import('../pages/Memories'));
 const GroupTravel = lazy(() => import('../pages/GroupTravel'));
+const TravelDetails = lazy(() => import('../pages/TravelDetails'));
 
 // Loading fallback
 const PageLoader = () => (
@@ -25,6 +26,7 @@ const Router = () => {
           <Route index element={<Home />} />
           <Route path="new-travel-plan" element={<NewTravelPlan />} />
           <Route path="upcoming-travels" element={<UpcomingTravels />} />
+          <Route path="upcoming-travels/:id/details" element={<TravelDetails />} />
           <Route path="memories" element={<Memories />} />
           <Route path="group-travel" element={<GroupTravel />} />
         </Route>

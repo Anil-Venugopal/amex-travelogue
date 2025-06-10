@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/UpcomingTravels.css';
 
 const UpcomingTravels = () => {
   const [travels, setTravels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // Mock data - In a real app, this would come from an API
   useEffect(() => {
@@ -140,7 +142,7 @@ const UpcomingTravels = () => {
                         </div>
                       </div>
                       <div className="travel-card-actions">
-                        <button className="btn btn-primary">View Details</button>
+                        <button className="btn btn-primary" onClick={() => navigate(`/upcoming-travels/${travel.id}/details`)}>View Details</button>
                         <button className="btn btn-secondary">Edit Trip</button>
                       </div>
                     </div>

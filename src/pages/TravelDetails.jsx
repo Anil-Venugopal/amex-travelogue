@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import '../styles/TravelDetails.css';
 
@@ -66,98 +66,203 @@ const downloadReport = async () => {
   doc.save('trip-report.pdf');
 };
 
-const TravelDetails = () => (
-  <div className="travel-details-page" style={{ paddingTop: '96px', paddingBottom: '48px', background: '#fff' }}>
-    <h1 className="td-main-title">GenAI Generated Trip Itinerary</h1>
-    <Section title="Flights">
-      <table className="td-table">
-        <thead>
-          <tr><th>Route</th><th>Flight Name</th><th>Departure</th><th>Arrival</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.flights.map((f, i) => (
-            <tr key={i}><td>{f.route}</td><td>{f.flight}</td><td>{f.departure}</td><td>{f.arrival}</td><td>{f.price}</td><td>{f.gold}</td><td>{f.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Lounges">
-      <table className="td-table">
-        <thead>
-          <tr><th>Lounge Name</th><th>Location</th><th>Cuisine</th><th>Price Range</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.lounges.map((l, i) => (
-            <tr key={i}><td>{l.name}</td><td>{l.location}</td><td>{l.cuisine}</td><td>{l.price}</td><td>{l.gold}</td><td>{l.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Hotels">
-      <table className="td-table">
-        <thead>
-          <tr><th>Hotel Name</th><th>Location</th><th>Price Per Night</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.hotels.map((h, i) => (
-            <tr key={i}><td>{h.name}</td><td>{h.location}</td><td>{h.price}</td><td>{h.gold}</td><td>{h.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Local Transport">
-      <table className="td-table">
-        <thead>
-          <tr><th>Name</th><th>PickUp Time</th><th>Drop Time</th><th>Transport Type</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.transport.map((t, i) => (
-            <tr key={i}><td>{t.name}</td><td>{t.pickup}</td><td>{t.drop}</td><td>{t.type}</td><td>{t.price}</td><td>{t.gold}</td><td>{t.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Restaurants">
-      <table className="td-table">
-        <thead>
-          <tr><th>Name</th><th>Location</th><th>Cuisine</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.restaurants.map((r, i) => (
-            <tr key={i}><td>{r.name}</td><td>{r.location}</td><td>{r.cuisine}</td><td>{r.price}</td><td>{r.gold}</td><td>{r.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Things to Do">
-      <table className="td-table">
-        <thead>
-          <tr><th>Name</th><th>Location</th><th>Category</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
-        </thead>
-        <tbody>
-          {mockData.things.map((t, i) => (
-            <tr key={i}><td>{t.name}</td><td>{t.location}</td><td>{t.category}</td><td>{t.price}</td><td>{t.gold}</td><td>{t.platinum}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <Section title="Amex Card Summary">
-      <table className="td-table">
-        <thead>
-          <tr><th>Amex Card</th><th>Total Price</th><th>Rewards Benefits</th><th>Total Savings</th></tr>
-        </thead>
-        <tbody>
-          {mockData.summary.map((s, i) => (
-            <tr key={i}><td>{s.card}</td><td>{s.total}</td><td>{s.rewards}</td><td>{s.savings}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </Section>
-    <div style={{ textAlign: 'center', marginTop: 32 }}>
-      <button className="btn btn-primary" onClick={() => window.history.back()}>Back</button>
-      <button className="btn btn-accent" style={{ marginLeft: 16 }} onClick={downloadReport}>Download Report</button>
+const TravelDetails = () => {
+  const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
+
+  const handleConfirmBooking = () => {
+    setIsBookingConfirmed(true);
+    // Add a small delay to ensure popup is rendered
+    setTimeout(() => {
+      const popupElement = document.querySelector('.booking-popup');
+      if (popupElement) {
+        popupElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    }, 100);
+  };
+
+  const handleClosePopup = () => {
+    setIsBookingConfirmed(false);
+  };
+
+  return (
+    <div className="travel-details-page" style={{ paddingTop: '96px', paddingBottom: '48px', background: '#fff' }}>
+      <h1 className="td-main-title">GenAI Generated Trip Itinerary</h1>
+      
+      {isBookingConfirmed && (
+        <div className="booking-popup-overlay" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000
+        }}>
+          <div className="booking-popup" style={{
+            backgroundColor: 'white',
+            padding: '32px',
+            borderRadius: '12px',
+            textAlign: 'center',
+            maxWidth: '500px',
+            width: '90%',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+          }}>
+            <div className="success-icon" style={{
+              fontSize: '48px',
+              color: '#4CAF50',
+              marginBottom: '16px'
+            }}>✓</div>
+            <h2 className="success-title" style={{
+              fontSize: '24px',
+              marginBottom: '16px',
+              color: '#333'
+            }}>Booking Confirmed!</h2>
+            <p className="success-message" style={{
+              color: '#666',
+              marginBottom: '24px',
+              lineHeight: '1.5'
+            }}>
+              Your travel booking has been successfully confirmed. You can view all the details in your upcoming travels section.
+            </p>
+            <div className="popup-actions" style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '16px'
+            }}>
+              <button
+                className="btn btn-primary"
+                onClick={() => window.location.href = '/upcoming-travels'}
+                style={{
+                  padding: '12px 24px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                View My Travels
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={handleClosePopup}
+                style={{
+                  color: 'black',
+                  padding: '12px 24px',
+                  borderRadius: '6px',
+                  border: '1px solid #ddd',
+                  backgroundColor: 'white',
+                  cursor: 'pointer'
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <Section title="Flights">
+        <table className="td-table">
+          <thead>
+            <tr><th>Route</th><th>Flight Name</th><th>Departure</th><th>Arrival</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.flights.map((f, i) => (
+              <tr key={i}><td>{f.route}</td><td>{f.flight}</td><td>{f.departure}</td><td>{f.arrival}</td><td>{f.price}</td><td>{f.gold}</td><td>{f.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Lounges">
+        <table className="td-table">
+          <thead>
+            <tr><th>Lounge Name</th><th>Location</th><th>Cuisine</th><th>Price Range</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.lounges.map((l, i) => (
+              <tr key={i}><td>{l.name}</td><td>{l.location}</td><td>{l.cuisine}</td><td>{l.price}</td><td>{l.gold}</td><td>{l.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Hotels">
+        <table className="td-table">
+          <thead>
+            <tr><th>Hotel Name</th><th>Location</th><th>Price Per Night</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.hotels.map((h, i) => (
+              <tr key={i}><td>{h.name}</td><td>{h.location}</td><td>{h.price}</td><td>{h.gold}</td><td>{h.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Local Transport">
+        <table className="td-table">
+          <thead>
+            <tr><th>Name</th><th>PickUp Time</th><th>Drop Time</th><th>Transport Type</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.transport.map((t, i) => (
+              <tr key={i}><td>{t.name}</td><td>{t.pickup}</td><td>{t.drop}</td><td>{t.type}</td><td>{t.price}</td><td>{t.gold}</td><td>{t.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Restaurants">
+        <table className="td-table">
+          <thead>
+            <tr><th>Name</th><th>Location</th><th>Cuisine</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.restaurants.map((r, i) => (
+              <tr key={i}><td>{r.name}</td><td>{r.location}</td><td>{r.cuisine}</td><td>{r.price}</td><td>{r.gold}</td><td>{r.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Things to Do">
+        <table className="td-table">
+          <thead>
+            <tr><th>Name</th><th>Location</th><th>Category</th><th>Price</th><th>Gold Card Price</th><th>Platinum Card Price</th></tr>
+          </thead>
+          <tbody>
+            {mockData.things.map((t, i) => (
+              <tr key={i}><td>{t.name}</td><td>{t.location}</td><td>{t.category}</td><td>{t.price}</td><td>{t.gold}</td><td>{t.platinum}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section title="Amex Card Summary">
+        <table className="td-table">
+          <thead>
+            <tr><th>Amex Card</th><th>Total Price</th><th>Rewards Benefits</th><th>Total Savings</th></tr>
+          </thead>
+          <tbody>
+            {mockData.summary.map((s, i) => (
+              <tr key={i}><td>{s.card}</td><td>{s.total}</td><td>{s.rewards}</td><td>{s.savings}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <div style={{ textAlign: 'center', marginTop: 32 }}>
+        <button className="btn btn-primary" onClick={() => window.history.back()}>Back</button>
+        <button className="btn btn-accent" style={{ marginLeft: 16 }} onClick={downloadReport}>Download Report</button>
+        <button 
+          className="btn btn-success" 
+          style={{ marginLeft: 16, backgroundColor: '#4CAF50' }} 
+          onClick={handleConfirmBooking}
+        >
+          Confirm Booking
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TravelDetails; 
